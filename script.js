@@ -3,6 +3,32 @@ let output = document.querySelector("#output");
 
 let arr =[1,2,3,4];
 
+let initial = ((arr) =>{
+
+	return new Promise((resolve,reject) =>{
+			resolve(arr);
+	})
+})
+
+
+
+initial(arr)
+.then((res) =>{
+	return first(res);
+})
+.then((res) =>{
+	output.innerText = res;
+	return second(res);
+})
+.then((res) =>{
+	output.innerText = res;
+})
+.catch((err) =>{
+	console.log(err);
+})
+
+
+
 let first = ((arr) =>{
 
 	return new Promise((resolve,reject) =>{
@@ -19,20 +45,6 @@ let first = ((arr) =>{
 	})
 })
 
-
-
-first(arr)
-.then((response) =>{
-	output.innerText = response;
-	return second(response);
-})
-.then((response) =>{
-	output.innerText = response;
-})
-.catch((err) =>{
-	console.log(err);
-})
-
 let second = ((even) =>{
 
 	return new Promise((resolve,reject) =>{
@@ -44,7 +56,7 @@ let second = ((even) =>{
 
 		 resolve(mul);
 			
-		},3000)
+		},2000)
 	})
 })
 
