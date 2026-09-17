@@ -4,10 +4,12 @@ let output = document.querySelector("#output");
 let arr =[1,2,3,4];
 
 let initial = ((arr) =>{
-
+  
 	return new Promise((resolve,reject) =>{
+		setTimeout(()=>{
 			resolve(arr);
-	})
+	},3000)
+  })
 })
 
 
@@ -59,4 +61,5 @@ let second = ((even) =>{
 		},2000)
 	})
 })
+
 
